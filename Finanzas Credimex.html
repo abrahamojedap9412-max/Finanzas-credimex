@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanzas Credimex | Apoyándote Siempre - Descuentos Exclusivos en Pagos</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        credimex: {
+                            dark: '#062c33',
+                            primary: '#0a4049',
+                            teal: '#12646d',
+                            green: '#70be44',
+                            greenHover: '#5ea735',
+                            mint: '#eaf6ec',
+                            lightBg: '#f4f8f8',
+                            gold: '#fbbf24'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        heading: ['"Montserrat"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom styles for range input sliders */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #70be44;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(112, 190, 68, 0.4);
+            border: 2px solid #ffffff;
+            transition: all 0.15s ease-in-out;
+        }
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+            background: #5ea735;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #062c33;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #70be44;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="font-sans bg-credimex-lightBg text-gray-800 antialiased flex flex-col min-h-screen">
+
+    <!-- TOP NOTICE BANNER (ALERTA DE PAGOS) -->
+    <div class="bg-credimex-dark text-white text-xs sm:text-sm py-2.5 px-4 border-b border-credimex-teal/40">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-2 text-center sm:text-left">
+                <span class="inline-flex items-center justify-center bg-yellow-400 text-credimex-dark text-xs px-2 py-0.5 rounded-full font-bold animate-pulse">
+                    <i class="fas fa-clock mr-1"></i> AVISO IMPORTANTE
+                </span>
+                <span>Realiza tus depósitos y transferencias <strong>antes de las 4:00 PM</strong> para evitar multas y sanciones.</span>
+            </div>
+            <div class="flex items-center space-x-4 text-xs font-semibold">
+                <a href="https://wa.me/524421565182" target="_blank" class="text-credimex-green hover:underline flex items-center gap-1">
+                    <i class="fab fa-whatsapp"></i> WhatsApp: 442 156 5182
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- LOGO OFICIAL -->
+                <a href="#" class="flex items-center space-x-3">
+                    <img src="https://i.postimg.cc/HxFG1cJ8/1793493092071.jpg" alt="Finanzas Credimex" class="h-12 sm:h-16 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/220x70/0a4049/ffffff?text=Finanzas+Credimex';">
+                </a>
+
+                <!-- DESKTOP NAV -->
+                <nav class="hidden md:flex items-center space-x-7 text-sm font-bold text-credimex-primary">
+                    <a href="#inicio" class="hover:text-credimex-green transition">Inicio</a>
+                    <a href="#promociones" class="hover:text-credimex-green transition">Descuentos</a>
+                    <a href="#beneficios" class="hover:text-credimex-green transition">Beneficios</a>
+                    <a href="#horarios" class="hover:text-credimex-green transition">Horarios de Pago</a>
+                    <a href="#simulador" class="hover:text-credimex-green transition">Simulador</a>
+                    <a href="#contacto" class="hover:text-credimex-green transition">Contacto</a>
+                </nav>
+
+                <!-- WHATSAPP CTA BUTTON -->
+                <div class="hidden md:flex items-center">
+                    <a href="https://wa.me/524421565182?text=Hola,%20deseo%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" class="bg-credimex-green hover:bg-credimex-greenHover text-white font-extrabold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-2 transform hover:-translate-y-0.5">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                        <span>WhatsApp 442 156 5182</span>
+                    </a>
+                </div>
+
+                <!-- MOBILE MENU BUTTON -->
+                <div class="flex md:hidden items-center">
+                    <button id="mobile-menu-btn" class="text-credimex-primary focus:outline-none p-2" aria-label="Abrir Menú">
+                        <i class="fas fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOBILE MENU DROPDOWN -->
+        <div id="mobile-menu" class="hidden md:hidden bg-credimex-primary text-white border-t border-credimex-teal px-4 pt-3 pb-6 space-y-3">
+            <a href="#inicio" class="mobile-link block px-3 py-2 rounded-lg font-semibold hover:bg-credimex-teal">Inicio</a>
+            <a href="#promociones" class="mobile-link block px-3 py-2 rounded-lg font-semibold hover:bg-credimex-teal">Descuentos Exclusivos</a>
+            <a href="#beneficios" class="mobile-link block px-3 py-2 rounded-lg font-semibold hover:bg-credimex-teal">Beneficios</a>
+            <a href="#horarios" class="mobile-link block px-3 py-2 rounded-lg font-semibold hover:bg-credimex-teal">Horarios de Pago</a>
+            <a href="#simulador" class="mobile-link block px-3 py-2 rounded-lg font-semibold hover:bg-credimex-teal">Simula tu Crédito</a>
+            <a href="#contacto" class="mobile-link block px-3 py-2 rounded-lg font-semibold hover:bg-credimex-teal">Contacto</a>
+            <a href="https://wa.me/524421565182" target="_blank" class="block text-center bg-credimex-green text-white font-bold py-3 rounded-xl shadow-md mt-4">
+                <i class="fab fa-whatsapp mr-2"></i> WhatsApp: 4421565182
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+
+        <!-- HERO SECTION -->
+        <section id="inicio" class="relative bg-gradient-to-br from-credimex-dark via-credimex-primary to-credimex-teal text-white py-16 lg:py-24 overflow-hidden">
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#70be44_1px,transparent_1px)] [background-size:20px_20px]"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Left Copywriting -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center space-x-2 bg-credimex-green/20 border border-credimex-green/40 px-4 py-1.5 rounded-full text-credimex-green text-xs sm:text-sm font-bold tracking-wide">
+                            <i class="fas fa-check-circle"></i>
+                            <span>#FinanzasDigitalesCredimex</span>
+                        </div>
+                        
+                        <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight">
+                            ¡PAGOS Y TRANSFERENCIAS CON <span class="text-transparent bg-clip-text bg-gradient-to-r from-credimex-green to-emerald-300 uppercase">DESCUENTO EXCLUSIVO!</span>
+                        </h1>
+                        
+                        <p class="text-base sm:text-xl text-gray-200 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                            Obtén grandes beneficios al realizar tus depósitos o transferencias en <strong>OXXO</strong> y <strong>SPEI</strong>. En Finanzas Credimex estamos <em>apoyándote siempre</em>.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                            <a href="https://wa.me/524421565182?text=Hola,%20deseo%20solicitar%20un%20cr%C3%A9dito%20con%20descuento" target="_blank" class="w-full sm:w-auto text-center bg-credimex-green hover:bg-credimex-greenHover text-white font-extrabold text-base px-8 py-4 rounded-xl shadow-xl transition-all duration-200 transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                                <i class="fab fa-whatsapp text-2xl"></i> Solicitar por WhatsApp
+                            </a>
+                            <a href="#simulador" class="w-full sm:w-auto text-center bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold text-base px-8 py-4 rounded-xl transition duration-200">
+                                <i class="fas fa-calculator mr-2"></i> Simular Mi Crédito
+                            </a>
+                        </div>
+
+                        <!-- Highlights Banner -->
+                        <div class="grid grid-cols-3 gap-3 pt-8 border-t border-white/15 text-center lg:text-left">
+                            <div>
+                                <p class="text-xl sm:text-3xl font-extrabold text-credimex-green">OXXO & SPEI</p>
+                                <p class="text-xs text-gray-300">Métodos Flexibles</p>
+                            </div>
+                            <div>
+                                <p class="text-xl sm:text-3xl font-extrabold text-credimex-green">Al Instante</p>
+                                <p class="text-xs text-gray-300">Pagos Seguros</p>
+                            </div>
+                            <div>
+                                <p class="text-xl sm:text-3xl font-extrabold text-credimex-green">100%</p>
+                                <p class="text-xs text-gray-300">Seguridad Garantizada</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Graphic / Promotional Card -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-gradient-to-b from-white/15 to-white/5 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/20 shadow-2xl relative">
+                            <div class="absolute top-4 right-4 bg-yellow-400 text-credimex-dark font-extrabold text-xs px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                                Promoción Activa
+                            </div>
+
+                            <div class="text-center pb-6 border-b border-white/10">
+                                <img src="https://i.postimg.cc/HxFG1cJ8/1793493092071.jpg" alt="Logo Credimex" class="h-16 mx-auto mb-3 bg-white p-2 rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/180x50/ffffff/0a4049?text=Credimex';">
+                                <h3 class="font-heading text-xl font-bold text-white">Finanzas Credimex</h3>
+                                <p class="text-xs text-credimex-green font-semibold">APOYÁNDOTE SIEMPRE</p>
+                            </div>
+
+                            <div class="py-6 space-y-4">
+                                <div class="bg-credimex-dark/60 p-4 rounded-2xl border border-white/10 flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-credimex-green rounded-xl flex items-center justify-center text-white text-2xl font-bold shrink-0">
+                                        <i class="fas fa-percentage"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-white">Descuento Exclusivo</h4>
+                                        <p class="text-xs text-gray-300">Aplica pagando o depositando vía OXXO y SPEI Bancario.</p>
+                                    </div>
+                                </div>
+
+                                <div class="bg-credimex-dark/60 p-4 rounded-2xl border border-white/10 flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-credimex-teal rounded-xl flex items-center justify-center text-white text-2xl font-bold shrink-0">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-white">Tecnología de Seguridad</h4>
+                                        <p class="text-xs text-gray-300">Tus datos y transacciones protegidos con altos estándares.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pt-2 text-center">
+                                <a href="https://wa.me/524421565182" target="_blank" class="block w-full bg-yellow-400 hover:bg-yellow-300 text-credimex-dark font-black py-3 rounded-xl transition text-sm shadow-md">
+                                    <i class="fab fa-whatsapp mr-1"></i> CONTACTAR EN WHATSAPP
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PROMOTION & PAYMENT METHODS SECTION -->
+        <section id="promociones" class="py-16 sm:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-credimex-primary font-bold text-xs sm:text-sm tracking-wider uppercase bg-credimex-mint px-4 py-1.5 rounded-full border border-credimex-green/30">
+                        Beneficios Especiales
+                    </span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-credimex-primary mt-4">
+                        ¡OBTÉN UN DESCUENTO EXCLUSIVO!
+                    </h2>
+                    <p class="text-gray-600 mt-2 text-base sm:text-lg">
+                        Válido en tus depósitos o transferencias al utilizar nuestras plataformas habilitadas.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    
+                    <!-- OXXO Card -->
+                    <div class="bg-gradient-to-br from-credimex-lightBg to-white p-8 rounded-3xl border-2 border-credimex-teal/20 shadow-lg hover:shadow-xl transition relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 bg-red-600 text-white text-xs font-black px-4 py-1 rounded-bl-xl uppercase">
+                            Convenio Directo
+                        </div>
+                        <div class="w-20 h-20 bg-red-100 rounded-2xl flex items-center justify-center text-red-600 text-4xl mb-6 group-hover:scale-110 transition duration-300">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl font-extrabold text-gray-900 mb-2">Pago en OXXO</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Realiza tu depósito o abono directamente en cualquier tienda OXXO del país de manera práctica y rápida.
+                        </p>
+                        <ul class="text-xs text-gray-500 space-y-2 mb-6">
+                            <li class="flex items-center text-gray-700 font-semibold">
+                                <i class="fas fa-check-circle text-credimex-green mr-2 text-sm"></i> Aplicable para descuento exclusivo
+                            </li>
+                            <li class="flex items-center text-gray-700 font-semibold">
+                                <i class="fas fa-check-circle text-credimex-green mr-2 text-sm"></i> Cobertura nacional en miles de sucursales
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- SPEI Card -->
+                    <div class="bg-gradient-to-br from-credimex-lightBg to-white p-8 rounded-3xl border-2 border-credimex-teal/20 shadow-lg hover:shadow-xl transition relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 bg-credimex-primary text-white text-xs font-black px-4 py-1 rounded-bl-xl uppercase">
+                            24/7 Digital
+                        </div>
+                        <div class="w-20 h-20 bg-emerald-100 rounded-2xl flex items-center justify-center text-credimex-primary text-4xl mb-6 group-hover:scale-110 transition duration-300">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl font-extrabold text-gray-900 mb-2">Transferencia SPEI</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Envía y recibe dinero entre cualquier banco con total agilidad desde la aplicación móvil de tu banco preferido.
+                        </p>
+                        <ul class="text-xs text-gray-500 space-y-2 mb-6">
+                            <li class="flex items-center text-gray-700 font-semibold">
+                                <i class="fas fa-check-circle text-credimex-green mr-2 text-sm"></i> Acreditación rápida y confirmación
+                            </li>
+                            <li class="flex items-center text-gray-700 font-semibold">
+                                <i class="fas fa-check-circle text-credimex-green mr-2 text-sm"></i> Sin filas, directamente desde tu smartphone
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- HORARIOS Y ALERTA DE PAGOS -->
+        <section id="horarios" class="py-16 bg-credimex-dark text-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-gradient-to-r from-credimex-primary to-credimex-teal rounded-3xl p-6 sm:p-12 shadow-2xl border border-white/10 relative overflow-hidden">
+                    <div class="grid lg:grid-cols-12 gap-8 items-center">
+                        
+                        <!-- Left Information -->
+                        <div class="lg:col-span-7 space-y-4">
+                            <div class="inline-flex items-center space-x-2 bg-yellow-400 text-credimex-dark text-xs font-extrabold px-3 py-1 rounded-md uppercase">
+                                <i class="fas fa-exclamation-triangle"></i> ESTIMADOS CLIENTES DE FINANZAS CREDIMEX
+                            </div>
+                            <h2 class="font-heading text-3xl sm:text-4xl font-black text-white leading-tight">
+                                DEPÓSITOS Y TRANSFERENCIAS
+                            </h2>
+                            <p class="text-gray-200 text-base leading-relaxed">
+                                Les recordamos realizar sus operaciones antes de la hora límite para asegurar el procesamiento oportuno en su cuenta.
+                            </p>
+
+                            <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10 flex items-start space-x-3">
+                                <i class="fas fa-shield-heart text-credimex-green text-2xl mt-1"></i>
+                                <p class="text-xs sm:text-sm text-gray-200">
+                                    <strong class="text-white">TU PAGO A TIEMPO NOS AYUDA A SEGUIR BRINDÁNDOTE UN MEJOR SERVICIO.</strong> Evita inconvenientes en tu historial crediticio.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Right Schedule Counter -->
+                        <div class="lg:col-span-5 bg-white text-gray-900 rounded-3xl p-8 text-center shadow-2xl space-y-4">
+                            <span class="text-xs font-extrabold uppercase tracking-widest text-credimex-primary bg-credimex-mint px-3 py-1 rounded-full">
+                                Horario Límite de Corte
+                            </span>
+                            <p class="text-sm font-bold text-gray-600 uppercase">ANTES DE LAS</p>
+                            
+                            <div class="text-5xl sm:text-6xl font-black text-credimex-green tracking-tight py-2 font-heading">
+                                4:00 PM
+                            </div>
+
+                            <div class="bg-red-50 text-red-700 p-3 rounded-xl border border-red-200 font-bold text-sm">
+                                <i class="fas fa-ban mr-1"></i> Eviten multas y sanciones.
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BENEFICIOS PRINCIPALES -->
+        <section id="beneficios" class="py-16 sm:py-24 bg-credimex-lightBg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-credimex-primary font-bold text-xs sm:text-sm tracking-wider uppercase bg-credimex-mint px-4 py-1.5 rounded-full">
+                        ¿Por qué elegirnos?
+                    </span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-credimex-primary mt-4">
+                        Nuestros Servicios Digitales
+                    </h2>
+                    <p class="text-gray-600 mt-2 text-base">
+                        Soluciones financieras modernas diseñadas para darte tranquilidad y rapidez.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    
+                    <!-- Card 1 -->
+                    <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-md hover:shadow-xl transition duration-300 text-center group">
+                        <div class="w-16 h-16 bg-credimex-mint text-credimex-green rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6 group-hover:bg-credimex-green group-hover:text-white transition duration-300">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-gray-900 mb-3">Pagos Digitales Rápidos</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Paga servicios e ingresos desde tu aplicación de Credimex con total agilidad, estés donde estés y sin perder tiempo.
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-md hover:shadow-xl transition duration-300 text-center group">
+                        <div class="w-16 h-16 bg-credimex-mint text-credimex-green rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6 group-hover:bg-credimex-green group-hover:text-white transition duration-300">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-gray-900 mb-3">Transferencias Securas</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Envía y recibe dinero entre bancos al instante con el respaldo y la rapidez de la red bancaria nacional.
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-md hover:shadow-xl transition duration-300 text-center group">
+                        <div class="w-16 h-16 bg-credimex-mint text-credimex-green rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6 group-hover:bg-credimex-green group-hover:text-white transition duration-300">
+                            <i class="fas fa-user-lock"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-gray-900 mb-3">Tecnología de Seguridad</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Tu dinero y datos personales siempre protegidos con los estándares de encriptación y seguridad más exigentes.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SIMULADOR DE CRÉDITO INTERACTIVO -->
+        <section id="simulador" class="py-16 sm:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-credimex-primary font-bold text-xs sm:text-sm tracking-wider uppercase bg-credimex-mint px-4 py-1.5 rounded-full">
+                        Calculadora Interactiva
+                    </span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-credimex-primary mt-4">
+                        Simula Tu Crédito Ahora
+                    </h2>
+                    <p class="text-gray-600 mt-2 text-base">
+                        Ajusta el monto y el plazo para calcular tu pago estimado al instante.
+                    </p>
+                </div>
+
+                <div class="bg-credimex-lightBg border border-gray-200 rounded-3xl p-6 sm:p-10 shadow-xl max-w-4xl mx-auto">
+                    <div class="grid lg:grid-cols-12 gap-8 items-center">
+                        
+                        <!-- Sliders Controls -->
+                        <div class="lg:col-span-7 space-y-8">
+                            
+                            <!-- Amount Slider -->
+                            <div>
+                                <div class="flex justify-between items-center mb-3">
+                                    <label class="text-gray-800 font-bold text-sm sm:text-base">Monto Solicitado:</label>
+                                    <span class="text-2xl font-black text-credimex-primary font-heading" id="calc-amount-val">$15,000 MXN</span>
+                                </div>
+                                <input type="range" id="calc-amount" min="3000" max="80000" step="1000" value="15000" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                                <div class="flex justify-between text-xs text-gray-500 font-semibold mt-2">
+                                    <span>$3,000</span>
+                                    <span>$40,000</span>
+                                    <span>$80,000 MXN</span>
+                                </div>
+                            </div>
+
+                            <!-- Term Slider -->
+                            <div>
+                                <div class="flex justify-between items-center mb-3">
+                                    <label class="text-gray-800 font-bold text-sm sm:text-base">Plazo de Pago:</label>
+                                    <span class="text-2xl font-black text-credimex-primary font-heading" id="calc-term-val">12 Semanas</span>
+                                </div>
+                                <input type="range" id="calc-term" min="4" max="48" step="2" value="12" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                                <div class="flex justify-between text-xs text-gray-500 font-semibold mt-2">
+                                    <span>4 plazos</span>
+                                    <span>24 plazos</span>
+                                    <span>48 plazos</span>
+                                </div>
+                            </div>
+
+                            <!-- Frequency Selection -->
+                            <div>
+                                <label class="block text-gray-800 font-bold text-sm mb-3">Frecuencia de Abono:</label>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <button type="button" id="btn-semanal" class="freq-option bg-credimex-primary text-white font-bold py-3 px-4 rounded-xl border-2 border-credimex-primary transition text-center shadow-sm">
+                                        Semanal
+                                    </button>
+                                    <button type="button" id="btn-mensual" class="freq-option bg-white text-gray-700 font-bold py-3 px-4 rounded-xl border-2 border-gray-200 hover:border-credimex-primary transition text-center">
+                                        Mensual
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Result Box -->
+                        <div class="lg:col-span-5 bg-gradient-to-br from-credimex-primary via-credimex-teal to-credimex-dark text-white p-6 sm:p-8 rounded-3xl shadow-lg flex flex-col justify-between space-y-6 border border-white/10">
+                            <div>
+                                <span class="text-xs uppercase tracking-wider text-credimex-green font-extrabold">Cálculo Estimado</span>
+                                <p class="text-xs text-gray-200 mt-1">Tu cuota aproximada a pagar:</p>
+                                
+                                <div class="my-4">
+                                    <span class="text-4xl sm:text-5xl font-black text-white font-heading" id="calc-result">$1,438</span>
+                                    <span class="text-xs text-gray-300 block mt-1" id="calc-freq-label">/ por semana</span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-2 text-xs border-t border-white/15 pt-4 text-gray-200">
+                                <div class="flex justify-between">
+                                    <span>Monto a recibir:</span>
+                                    <span class="font-bold text-white" id="summary-monto">$15,000 MXN</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Plazo total:</span>
+                                    <span class="font-bold text-white" id="summary-plazo">12 pagos</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Descuento OXXO/SPEI:</span>
+                                    <span class="font-bold text-credimex-green">¡Aplica!</span>
+                                </div>
+                            </div>
+
+                            <!-- Dynamic WhatsApp button with pre-filled message -->
+                            <a id="btn-request-wa" href="https://wa.me/524421565182" target="_blank" class="block text-center bg-credimex-green hover:bg-credimex-greenHover text-white font-extrabold py-3.5 px-6 rounded-xl shadow-lg transition transform hover:scale-105 flex items-center justify-center gap-2">
+                                <i class="fab fa-whatsapp text-xl"></i> Solicitar por WhatsApp
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTACTO & FORMULARIO -->
+        <section id="contacto" class="py-16 sm:py-24 bg-credimex-lightBg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-12 gap-12">
+                    
+                    <!-- Contact Information -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <span class="text-credimex-primary font-bold text-xs sm:text-sm tracking-wider uppercase bg-credimex-mint px-4 py-1.5 rounded-full">Atención Directa</span>
+                        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-credimex-primary">Contáctanos Hoy mismo</h2>
+                        <p class="text-gray-600 text-base leading-relaxed">
+                            En <strong>Finanzas Credimex</strong> estamos para asesorarte con total transparencia en cada paso.
+                        </p>
+
+                        <div class="space-y-4 pt-4">
+                            
+                            <!-- WhatsApp Box -->
+                            <a href="https://wa.me/524421565182" target="_blank" class="flex items-center space-x-4 bg-white p-4 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition">
+                                <div class="w-12 h-12 bg-emerald-100 text-credimex-green rounded-xl flex items-center justify-center text-2xl shrink-0">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 text-sm">WhatsApp Oficial</h4>
+                                    <p class="text-sm text-credimex-primary font-extrabold">442 156 5182</p>
+                                </div>
+                            </a>
+
+                            <!-- Website Box -->
+                            <div class="flex items-center space-x-4 bg-white p-4 rounded-2xl border border-gray-200 shadow-sm">
+                                <div class="w-12 h-12 bg-credimex-mint text-credimex-primary rounded-xl flex items-center justify-center text-2xl shrink-0">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 text-sm">Sitio Web Oficial</h4>
+                                    <p class="text-sm text-gray-600">www.credimex.com</p>
+                                </div>
+                            </div>
+
+                            <!-- Social Hashtag -->
+                            <div class="flex items-center space-x-4 bg-white p-4 rounded-2xl border border-gray-200 shadow-sm">
+                                <div class="w-12 h-12 bg-credimex-mint text-credimex-primary rounded-xl flex items-center justify-center text-2xl shrink-0">
+                                    <i class="fas fa-hashtag"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 text-sm">Redes Sociales</h4>
+                                    <p class="text-sm font-bold text-credimex-green">#FinanzasDigitalesCredimex</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Interactive Form Card -->
+                    <div class="lg:col-span-7 bg-white p-6 sm:p-10 rounded-3xl border border-gray-200 shadow-xl">
+                        <h3 class="font-heading text-2xl font-bold text-gray-900 mb-2">Envíanos un Mensaje</h3>
+                        <p class="text-sm text-gray-600 mb-6">Déjanos tus datos y un ejecutivo se comunicará a la brevedad.</p>
+
+                        <div id="form-feedback" class="hidden mb-6 p-4 rounded-xl text-sm font-semibold"></div>
+
+                        <form id="contact-form" class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nombre Completo *</label>
+                                    <input type="text" required placeholder="Tu nombre" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-credimex-primary focus:border-transparent outline-none text-sm bg-credimex-lightBg">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Teléfono o WhatsApp *</label>
+                                    <input type="tel" required placeholder="10 dígitos" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-credimex-primary focus:border-transparent outline-none text-sm bg-credimex-lightBg">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Correo Electrónico</label>
+                                <input type="email" placeholder="correo@ejemplo.com" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-credimex-primary focus:border-transparent outline-none text-sm bg-credimex-lightBg">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-1">¿En qué te podemos apoyar?</label>
+                                <textarea rows="3" placeholder="Escribe tus dudas sobre tu crédito, depósitos u horarios..." class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-credimex-primary focus:border-transparent outline-none text-sm bg-credimex-lightBg"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-credimex-primary hover:bg-credimex-dark text-white font-extrabold py-4 rounded-xl shadow-md transition duration-200 text-sm">
+                                Enviar Consulta
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-credimex-dark text-white pt-16 pb-12 border-t border-credimex-teal/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+                
+                <!-- Logo & Slogan -->
+                <div class="space-y-4">
+                    <img src="https://i.postimg.cc/HxFG1cJ8/1793493092071.jpg" alt="Finanzas Credimex" class="h-14 bg-white p-2 rounded-xl object-contain" onerror="this.onerror=null; this.src='https://placehold.co/200x60/ffffff/0a4049?text=Credimex';">
+                    <p class="text-xs text-gray-300 font-medium leading-relaxed">
+                        <strong>Finanzas Credimex</strong> - <em>Apoyándote Siempre</em>. Soluciones financieras accesibles y tecnología de seguridad digital.
+                    </p>
+                    <p class="text-xs font-bold text-credimex-green">
+                        #FinanzasDigitalesCredimex
+                    </p>
+                </div>
+
+                <!-- Navigation -->
+                <div>
+                    <h4 class="font-heading font-bold text-sm text-credimex-green uppercase tracking-wider mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li><a href="#inicio" class="hover:text-white transition">Inicio</a></li>
+                        <li><a href="#promociones" class="hover:text-white transition">Descuentos Exclusivos</a></li>
+                        <li><a href="#horarios" class="hover:text-white transition">Horarios de Pago (4:00 PM)</a></li>
+                        <li><a href="#simulador" class="hover:text-white transition">Simula tu Crédito</a></li>
+                    </ul>
+                </div>
+
+                <!-- Payment Methods -->
+                <div>
+                    <h4 class="font-heading font-bold text-sm text-credimex-green uppercase tracking-wider mb-4">Métodos de Pago</h4>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li><i class="fas fa-check text-credimex-green mr-1"></i> Depósitos en OXXO</li>
+                        <li><i class="fas fa-check text-credimex-green mr-1"></i> Transferencia SPEI Bancaria</li>
+                        <li><i class="fas fa-check text-credimex-green mr-1"></i> Aplicación Credimex</li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-heading font-bold text-sm text-credimex-green uppercase tracking-wider mb-4">Contacto Directo</h4>
+                    <p class="text-xs text-gray-300 mb-2">WhatsApp: <strong class="text-white">442 156 5182</strong></p>
+                    <p class="text-xs text-gray-300 mb-4">Web: <strong class="text-white">www.credimex.com</strong></p>
+                    <a href="https://wa.me/524421565182" target="_blank" class="inline-flex items-center gap-2 bg-credimex-green hover:bg-credimex-greenHover text-white text-xs font-bold px-4 py-2 rounded-xl transition shadow">
+                        <i class="fab fa-whatsapp text-sm"></i> Chatear ahora
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-400 gap-4 text-center sm:text-left">
+                <p>&copy; 2026 Finanzas Credimex. Todos los derechos reservados.</p>
+                <p class="text-gray-400">Recordatorio: Depósitos antes de las 4:00 PM evitan sanciones.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                menuIcon.className = mobileMenu.classList.contains('hidden') 
+                    ? 'fas fa-bars text-2xl' 
+                    : 'fas fa-times text-2xl';
+            });
+
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.className = 'fas fa-bars text-2xl';
+                });
+            });
+
+            // Credit Calculator Logic
+            const amountInput = document.getElementById('calc-amount');
+            const termInput = document.getElementById('calc-term');
+            const amountVal = document.getElementById('calc-amount-val');
+            const termVal = document.getElementById('calc-term-val');
+            const calcResult = document.getElementById('calc-result');
+            const summaryMonto = document.getElementById('summary-monto');
+            const summaryPlazo = document.getElementById('summary-plazo');
+            const calcFreqLabel = document.getElementById('calc-freq-label');
+            const btnSemanal = document.getElementById('btn-semanal');
+            const btnMensual = document.getElementById('btn-mensual');
+            const btnRequestWa = document.getElementById('btn-request-wa');
+
+            let currentFreq = 'semanal';
+
+            function updateCalculator() {
+                const amount = parseFloat(amountInput.value);
+                const term = parseInt(termInput.value);
+
+                // Simple simulated interest rate calculation
+                const interestRate = currentFreq === 'semanal' ? 0.018 : 0.045;
+                const totalInterest = amount * interestRate * (term / 2);
+                const totalPayable = amount + totalInterest;
+                const installment = Math.round(totalPayable / term);
+
+                const fmt = new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', maximumFractionDigits: 0 });
+
+                amountVal.textContent = fmt.format(amount) + ' MXN';
+                termVal.textContent = term + (currentFreq === 'semanal' ? ' Semanas' : ' Meses');
+                calcResult.textContent = fmt.format(installment);
+                summaryMonto.textContent = fmt.format(amount) + ' MXN';
+                summaryPlazo.textContent = term + ' pagos';
+                calcFreqLabel.textContent = currentFreq === 'semanal' ? '/ por semana' : '/ por mes';
+
+                // Update WhatsApp Link dynamically with calculated data
+                const message = encodeURIComponent(
+                    `Hola Finanzas Credimex, me interesa solicitar un crédito de ${fmt.format(amount)} a ${term} ${currentFreq === 'semanal' ? 'semanas' : 'meses'} con pago aproximado de ${fmt.format(installment)}.`
+                );
+                btnRequestWa.href = `https://wa.me/524421565182?text=${message}`;
+            }
+
+            amountInput.addEventListener('input', updateCalculator);
+            termInput.addEventListener('input', updateCalculator);
+
+            btnSemanal.addEventListener('click', () => {
+                currentFreq = 'semanal';
+                btnSemanal.className = 'freq-option bg-credimex-primary text-white font-bold py-3 px-4 rounded-xl border-2 border-credimex-primary transition text-center shadow-sm';
+                btnMensual.className = 'freq-option bg-white text-gray-700 font-bold py-3 px-4 rounded-xl border-2 border-gray-200 hover:border-credimex-primary transition text-center';
+                updateCalculator();
+            });
+
+            btnMensual.addEventListener('click', () => {
+                currentFreq = 'mensual';
+                btnMensual.className = 'freq-option bg-credimex-primary text-white font-bold py-3 px-4 rounded-xl border-2 border-credimex-primary transition text-center shadow-sm';
+                btnSemanal.className = 'freq-option bg-white text-gray-700 font-bold py-3 px-4 rounded-xl border-2 border-gray-200 hover:border-credimex-primary transition text-center';
+                updateCalculator();
+            });
+
+            // Initial calculation call
+            updateCalculator();
+
+            // Contact Form Feedback Handler
+            const contactForm = document.getElementById('contact-form');
+            const formFeedback = document.getElementById('form-feedback');
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                formFeedback.classList.remove('hidden');
+                formFeedback.className = 'mb-6 p-4 rounded-xl text-sm font-bold bg-emerald-100 text-emerald-800 border border-emerald-300';
+                formFeedback.innerHTML = '<i class="fas fa-check-circle mr-2"></i> ¡Gracias por comunicarte! Un ejecutivo de Finanzas Credimex se pondrá en contacto contigo pronto.';
+                contactForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>
